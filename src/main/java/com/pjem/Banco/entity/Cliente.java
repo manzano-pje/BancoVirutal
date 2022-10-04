@@ -1,29 +1,24 @@
 package com.pjem.Banco.entity;
 
-
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Date;
+import javax.persistence.*;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long clienteId;
 
     private String cpf;
     private String nome;
@@ -39,5 +34,8 @@ public class Cliente {
     private LocalDate aniversario;
     private LocalDate data_abertura;
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Conta> contas = new ArrayList<>();
 
 }
+

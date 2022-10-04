@@ -1,13 +1,13 @@
 package com.pjem.Banco.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pjem.Banco.entity.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -66,9 +66,13 @@ public class ClienteDTO {
     private String email;
 
     @NotNull
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private LocalDate aniversario;
 
     @NotEmpty
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     private LocalDate data_abertura;
 
 }
