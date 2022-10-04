@@ -21,12 +21,12 @@ public class ContaController {
     private ClienteService clienteService;
 
 
-    @PostMapping("cria/")
+    @PostMapping("/cria")
     public ContaDTO cria(@RequestBody @Valid ContaDTO contaDTO){
         return contaService.criaConta(contaDTO);
     }
 
-    @GetMapping("lista/")
+    @GetMapping("/lista")
     public Optional<Conta> listaContas(@PathVariable Long conta){
         return contaService.listaContas(conta);
     }

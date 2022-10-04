@@ -18,6 +18,7 @@ public class Conta {
     private String tipo;
     private Long idCliente;
 
+
     @ManyToOne
     @JoinColumn(name="clienteId", nullable=false)
     private Cliente cliente;
