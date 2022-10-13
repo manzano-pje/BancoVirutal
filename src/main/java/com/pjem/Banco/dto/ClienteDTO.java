@@ -1,7 +1,6 @@
-package com.pjem.Banco.DTO;
+package com.pjem.Banco.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.pjem.Banco.entity.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

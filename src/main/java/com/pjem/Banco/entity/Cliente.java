@@ -1,8 +1,7 @@
 package com.pjem.Banco.entity;
 
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cliente {
@@ -34,7 +35,8 @@ public class Cliente {
     private LocalDate aniversario;
     private LocalDate data_abertura;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = {CascadeType.DETACH})
+    @JsonManagedReference
     private List<Conta> contas = new ArrayList<>();
 
 }
